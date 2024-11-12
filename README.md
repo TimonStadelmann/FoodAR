@@ -1,4 +1,1 @@
 # Food AR
-
-asdaqwadys
-SDAASD
