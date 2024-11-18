@@ -6,23 +6,22 @@
         <title>Real-time Video Text Recognition</title>
         <link rel="stylesheet" href="style.css" />
 
-        <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js" defer></script>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="app.js" defer></script>
     </head>
     <body>
-        <h1>Real-time Video Text Recognition</h1>
+        <h1>Food AR js test</h1>
 
-        <div id="video-container">
-            <video id="video" autoplay playsinline></video>
-            <div class="detection-box"></div>
-            <canvas id="canvas"></canvas>
-        </div>
-
-        <div class="controls">
-            <button id="startBtn">Start Recognition</button>
-            <button id="stopBtn">Stop Recognition</button>
-        </div>
-
-        <div id="result"></div>
+        <a-scene embedded arjs="debugUIEnabled: true; detectionMode: mono_and_matrix; matrixCodeType: 5x5_bch_22_7_7">
+            <a-marker type="barcode" value="1">
+                <a-box position="0 0 0" material="color: yellow;"></a-box>
+            </a-marker>
+            <!-- <a-marker preset="kanji">
+                <a-box position="0 0 0" material="color: yellow;"></a-box>
+            </a-marker> -->
+            <a-entity camera></a-entity>
+        </a-scene>
+        <noscript> You need to enable JavaScript to run this app. </noscript>
     </body>
 </html>
