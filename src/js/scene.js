@@ -1,6 +1,5 @@
 import { createPlaneMarker } from './PlaneMarker';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { handleXRHitTest } from './utils/hitTest';
 
 import { AmbientLight, PerspectiveCamera, Scene } from 'three';
@@ -14,8 +13,6 @@ export function createScene(renderer) {
      * Add some simple ambient lights to illuminate the model.
      */
     const ambientLight = new AmbientLight(0xffffff, 1.0);
-
-    alert('ambientLight: ' + 'sdfdf');
 
     scene.add(ambientLight);
 
