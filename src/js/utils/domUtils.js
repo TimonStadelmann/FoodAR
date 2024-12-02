@@ -1,10 +1,3 @@
-/**
- * Checks if the browser has AR compatibility.
- *
- * This function checks if the browser supports WebXR and if it supports immersive AR sessions.
- *
- * @returns {Promise<boolean>} A promise that resolves to a boolean indicating whether the browser supports immersive AR.
- */
 export async function hasBrowserArCompatibility() {
     if (window.navigator.xr) {
         return await navigator.xr.isSessionSupported('immersive-ar');
