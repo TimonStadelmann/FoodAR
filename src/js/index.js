@@ -1,7 +1,7 @@
 import { WebGLRenderer } from 'three/src/renderers/WebGLRenderer';
 import { ARButton } from 'three/examples/jsm/webxr/ARButton';
 import { createScene } from './scene';
-import { browserHasImmersiveArCompatibility, displayIntroductionMessage, displayUnsupportedBrowserMessage } from './utils/domUtils';
+import { hasBrowserArCompatibility, displayIntroductionMessage, displayUnsupportedBrowserMessage } from './utils/domUtils';
 
 function initializeXRApp() {
     const { devicePixelRatio, innerHeight, innerWidth } = window;
@@ -23,7 +23,7 @@ function initializeXRApp() {
 }
 
 async function start() {
-    const isImmersiveArSupported = await browserHasImmersiveArCompatibility();
+    const isImmersiveArSupported = await hasBrowserArCompatibility();
 
     isImmersiveArSupported ? initializeXRApp() : displayUnsupportedBrowserMessage();
 }

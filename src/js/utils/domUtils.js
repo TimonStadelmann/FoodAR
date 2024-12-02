@@ -2,12 +2,9 @@
  * Returns true if navigator has xr with 'immersive-ar' capabilities
  * Returns false otherwise.
  */
-export async function browserHasImmersiveArCompatibility() {
+export async function hasBrowserArCompatibility() {
     if (window.navigator.xr) {
-        const isSupported = await navigator.xr.isSessionSupported('immersive-ar');
-        // eslint-disable-next-line no-console
-        console.info(`[DEBUG] ${isSupported ? 'Browser supports immersive-ar' : 'Browser does not support immersive-ar'}`);
-        return isSupported;
+        return await navigator.xr.isSessionSupported('immersive-ar');
     }
     return false;
 }
@@ -83,7 +80,7 @@ export function displayIntroductionMessage() {
 }
 
 export default {
-    browserHasImmersiveArCompatibility,
+    hasBrowserArCompatibility,
     displayIntroductionMessage,
     displayUnsupportedBrowserMessage
 };

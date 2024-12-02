@@ -1,2 +1,4 @@
-exec >/dev/tty 2>&1
+if [ -d /dev/tty ]; then
+    exec >/dev/tty 2>&1
+fi
 npx lint-staged
