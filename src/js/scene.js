@@ -14,6 +14,7 @@ export function createScene(renderer) {
      * Add some simple ambient lights to illuminate the model.
      */
     const ambientLight = new AmbientLight(0xffffff, 1.0);
+
     scene.add(ambientLight);
 
     /**
