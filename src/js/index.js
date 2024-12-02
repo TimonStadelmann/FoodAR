@@ -13,7 +13,7 @@ function initializeXRApp() {
 
 	renderer.xr.enabled = true;
 
-	
+	console.log('tst');
 
 	document.body.appendChild(renderer.domElement);
 
