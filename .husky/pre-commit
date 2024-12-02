@@ -1,4 +1,4 @@
-if [ -e /dev/tty ] && [ -c /dev/tty ] && [ -w /dev/tty ] && [ -b /dev/tty ]; then
-  exec >/dev/tty 2>&1
+if [ -e /dev/tty ] && [ -c /dev/tty ] && [ -w /dev/tty ] && [ node -e "equire('tty').isatty(1)" = "true" ]; then
+    exec >/dev/tty 2>&1
 fi
 npx lint-staged
