@@ -1,6 +1,4 @@
-if [[ "$OS" == "Windows_NT" ]]; then
-    exec >CON 2>&1
-else
-    exec >$(tty) 2>&1
+if [ -c /dev/tty ]; then
+  exec >/dev/tty 2>&1
 fi
 npx lint-staged
