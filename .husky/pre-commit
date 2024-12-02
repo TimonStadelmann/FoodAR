@@ -1,4 +1,4 @@
-if [ node -e "equire('tty').isatty(0)" = "true" ]; then
+if [ "$(node -e "require('tty').isatty(0)")" = "true" ]; then
     exec >/dev/tty 2>&1
 fi
 npx lint-staged

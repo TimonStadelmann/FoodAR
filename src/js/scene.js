@@ -4,6 +4,13 @@ import { handleXRHitTest } from './utils/hitTest';
 
 import { AmbientLight, PerspectiveCamera, Scene } from 'three';
 
+/**
+ * Creates a new 3D scene with a camera, lights, and a model loader.
+ * Sets up a plane marker for tracked surfaces and a controller for XR input.
+ * Handles hit test results and updates the scene in the render loop.
+ *
+ * @param {THREE.WebGLRenderer} renderer - The WebGL renderer used to render the scene.
+ */
 export function createScene(renderer) {
     const scene = new Scene();
 
