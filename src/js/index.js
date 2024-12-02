@@ -30,6 +30,14 @@ function initializeXRApp() {
     createScene(renderer);
 }
 
+/**
+ * Initializes the AR application if the browser supports immersive AR.
+ * If the browser does not support immersive AR, it displays a message indicating that the browser is unsupported.
+ *
+ * @async
+ * @function start
+ * @returns {Promise<void>} A promise that resolves when the initialization process is complete.
+ */
 async function start() {
     const isImmersiveArSupported = await hasBrowserArCompatibility();
 
