@@ -46,8 +46,16 @@ export function displayUnsupportedBrowserMessage() {
 }
 
 /**
- * Create and show a simple introduction message if the device supports
- * WebXR with immersive-ar mode.
+ * Displays an introduction message in the app root element.
+ *
+ * This function creates and appends three elements to the DOM:
+ * - A big message welcoming the user.
+ * - A middle message instructing the user to press a button to enter the AR experience.
+ * - A help message with a note about the best conditions for using the app.
+ *
+ * The help message is styled with specific font size, weight, padding, and opacity.
+ *
+ * @returns {Function} A function that removes the appended messages from the app root element.
  */
 export function displayIntroductionMessage() {
     const appRoot = document.getElementById('app-root');
