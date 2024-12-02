@@ -1,11 +1,8 @@
 /* Global Styles */
-@import "global/reset.css";
-@import "global/texts.css";
+@import 'global/reset.css';
 
 /* Variables */
-@import "variables/colors.css";
+@import 'variables/colors.css';
 
 /* Layout */
-@import "main.css";
-
-/* Components */
+@import 'main.css';

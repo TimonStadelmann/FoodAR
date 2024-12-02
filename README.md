@@ -8,8 +8,8 @@
 
 ## Prerequisites
 
--   Node.js (v14 or higher)
--   npm or yarn
+- Node.js (v14 or higher)
+- npm or yarn
 
 ## Installation
 
@@ -53,10 +53,10 @@ foodar/
 
 ## Scripts
 
--   `npm run dev` - Start development server
--   `npm run build` - Build for production
--   `npm run preview` - Preview production build
--   `npm run tunnel` - Create public URL with localtunnel
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run tunnel` - Create public URL with localtunnel
 
 ## License
 

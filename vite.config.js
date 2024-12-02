@@ -1,5 +1,5 @@
-import { defineConfig } from "vite";
-import autoprefixer from "autoprefixer";
+import { defineConfig } from 'vite';
+import autoprefixer from 'autoprefixer';
 
 export default defineConfig({
     server: {
@@ -7,8 +7,8 @@ export default defineConfig({
         open: false
     },
     build: {
-        outDir: "build",
-        assetsDir: "assets",
+        outDir: 'build',
+        assetsDir: 'assets',
         emptyOutDir: true
     },
     css: {

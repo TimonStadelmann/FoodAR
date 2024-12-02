@@ -29,8 +29,8 @@
     },
     "lint-staged": {
         "*.{js,css,md,json}": "prettier . --write",
-        "*.{js}": "eslint .",
-        "*.{css}": "stylelint **/*.css"
+        "*.js": "eslint .",
+        "*.css": "stylelint **/*.css"
     },
     "prettier": {
         "singleQuote": true,
@@ -42,8 +42,8 @@
     "stylelint": {
         "extends": "stylelint-config-standard-scss",
         "ignoreFiles": [
-            "node_modules/**/*",
-            "dist/**/*"
+            "node_modules/**/*.css",
+            "build/**/*.css"
         ]
     }
 }
