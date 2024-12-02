@@ -12,8 +12,13 @@ export async function hasBrowserArCompatibility() {
     return false;
 }
 
-/*
- * Create and display message when no XR capabilities are found.
+/**
+ * Displays a message indicating that the user's browser does not support augmented reality with WebXR.
+ * The message is appended to an element with the ID 'app-root'.
+ * The message consists of three paragraphs:
+ * 1. A sad face emoji with the text "Oh no!"
+ * 2. A message indicating the lack of WebXR support.
+ * 3. A suggestion to use a recent version of Chrome on Android.
  */
 export function displayUnsupportedBrowserMessage() {
     const appRoot = document.getElementById('app-root');
