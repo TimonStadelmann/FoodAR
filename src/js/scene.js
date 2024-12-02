@@ -15,6 +15,8 @@ export function createScene(renderer) {
      */
     const ambientLight = new AmbientLight(0xffffff, 1.0);
 
+    alert('ambientLight: ' + 'sdfdf');
+
     scene.add(ambientLight);
 
     /**
