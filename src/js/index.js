@@ -13,6 +13,8 @@ function initializeXRApp() {
 
 	renderer.xr.enabled = true;
 
+	console.log('tst', 'etset');
+
 	document.body.appendChild(renderer.domElement);
 
 	document.body.appendChild(ARButton.createButton(renderer, { requiredFeatures: ['hit-test'] }));
