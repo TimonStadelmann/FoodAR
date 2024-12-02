@@ -3,6 +3,14 @@ import { ARButton } from 'three/examples/jsm/webxr/ARButton';
 import { createScene } from './scene';
 import { hasBrowserArCompatibility, displayIntroductionMessage, displayUnsupportedBrowserMessage } from './utils/domUtils';
 
+/**
+ * Initializes the XR (Extended Reality) application.
+ * Sets up the WebGL renderer, enables XR, and appends necessary elements to the document body.
+ * Also displays an introduction message and creates the scene.
+ *
+ * @function
+ * @name initializeXRApp
+ */
 function initializeXRApp() {
     const { devicePixelRatio, innerHeight, innerWidth } = window;
 
