@@ -1,23 +1,21 @@
 import { createPlaneMarker } from './PlaneMarker';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { handleXRHitTest } from './utils/hitTest';
+
 import { AmbientLight, PerspectiveCamera, Scene } from 'three';
 
+/**
+ * Creates and sets up the 3D scene with XR capabilities
+ * @param {WebGLRenderer} renderer - The WebGL renderer instance
+ */
 export function createScene(renderer) {
     const scene = new Scene();
 
     const camera = new PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.02, 20);
 
-    /**
-     * Add some simple ambient lights to illuminate the model.
-     */
     const ambientLight = new AmbientLight(0xffffff, 1.0);
-
     scene.add(ambientLight);
 
-    /**
-     * Load the gLTF model and assign result to variable.
-     */
     const gltfLoader = new GLTFLoader();
 
     let koalaModel;
@@ -26,41 +24,30 @@ export function createScene(renderer) {
         koalaModel = gltf.scene.children[0];
     });
 
-    /**
-     * Create the plane marker to show on tracked surfaces.
-     */
     const planeMarker = createPlaneMarker();
     scene.add(planeMarker);
 
-    /**
-     * Setup the controller to get input from the XR space.
-     */
     const controller = renderer.xr.getController(0);
     scene.add(controller);
 
     controller.addEventListener('select', onSelect);
 
     /**
-     * The onSelect function is called whenever we tap the screen
-     * in XR mode.
+     * Handles the select event when tapping the screen in XR mode
      */
     function onSelect() {
         if (planeMarker.visible) {
             const model = koalaModel.clone();
-
-            // Place the model on the spot where the marker is showing.
             model.position.setFromMatrixPosition(planeMarker.matrix);
-
-            // Rotate the model randomly to give a bit of variation.
             model.rotation.y = Math.random() * (Math.PI * 2);
             model.visible = true;
-
             scene.add(model);
         }
     }
 
     /**
-     * Called whenever a new hit test result is ready.
+     * Updates the plane marker position when hit test results are available
+     * @param {Float32Array} hitPoseTransformed - The transformed hit test pose matrix
      */
     function onHitTestResultReady(hitPoseTransformed) {
         if (hitPoseTransformed) {
@@ -70,17 +57,16 @@ export function createScene(renderer) {
     }
 
     /**
-     * Called whenever the hit test is empty/unsuccesful.
+     * Hides the plane marker when no hit test results are available
      */
     function onHitTestResultEmpty() {
         planeMarker.visible = false;
     }
 
     /**
-     * The main render loop.
-     *
-     * This is where we perform hit-tests and update the scene
-     * whenever anything changes.
+     * The main render loop
+     * @param {number} timestamp - The current timestamp
+     * @param {XRFrame} frame - The current XR frame
      */
     const renderLoop = (timestamp, frame) => {
         if (renderer.xr.isPresenting) {
