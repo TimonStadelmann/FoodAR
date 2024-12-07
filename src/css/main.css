@@ -1,23 +1,23 @@
 .headline {
-    color: white;
-    margin-top: 5%;
-    margin-inline: auto;
-    display: block;
-    width: 100%;
-    text-align: center;
+	color: white;
+	margin-top: 5%;
+	margin-inline: auto;
+	display: block;
+	width: 100%;
+	text-align: center;
 }
 
 body {
-    overflow: clip;
+	overflow: clip;
 }
 
 body::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle 500px at center -50px, darkblue, black) no-repeat;
-    filter: blur(5px) contrast(150%)
-        url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxmaWx0ZXIgaWQ9Im4iPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIuNyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNuKSIgb3BhY2l0eT0iLjEiLz48L3N2Zz4=');
-    scale: 1.1;
-    z-index: -1;
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(circle 500px at center -50px, darkblue, black) no-repeat;
+	filter: blur(5px) contrast(150%)
+		url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxmaWx0ZXIgaWQ9Im4iPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIuNyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNuKSIgb3BhY2l0eT0iLjEiLz48L3N2Zz4=');
+	scale: 1.1;
+	z-index: -1;
 }

@@ -1,49 +1,50 @@
 {
-    "name": "foodar",
-    "version": "1.0.0",
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "preview": "vite preview",
-        "tunnel": "lt --port 8080",
-        "lint": "eslint . && stylelint **/*.css",
-        "format": "prettier . --write",
-        "prepare": "husky"
-    },
-    "devDependencies": {
-        "@eslint/js": "^9.16.0",
-        "autoprefixer": "^10.4.20",
-        "eslint": "^9.16.0",
-        "globals": "^15.13.0",
-        "husky": "^9.1.7",
-        "lint-staged": "^15.2.10",
-        "localtunnel": "^2.0.2",
-        "prettier": "^3.4.1",
-        "stylelint": "^16.11.0",
-        "stylelint-config-standard-scss": "^14.0.0",
-        "vite": "^5.0.0"
-    },
-    "dependencies": {
-        "three": "^0.138.3"
-    },
-    "lint-staged": {
-        "*.{js,css,md,json}": "prettier . --write",
-        "*.js": "eslint .",
-        "*.css": "stylelint **/*.css"
-    },
-    "prettier": {
-        "singleQuote": true,
-        "tabWidth": 4,
-        "trailingComma": "none",
-        "printWidth": 200,
-        "endOfLine": "crlf"
-    },
-    "stylelint": {
-        "extends": "stylelint-config-standard-scss",
-        "ignoreFiles": [
-            "node_modules/**/*.css",
-            "build/**/*.css"
-        ]
-    }
+	"name": "foodar",
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"tunnel": "lt --port 8080",
+		"lint": "eslint . && stylelint **/*.css",
+		"format": "prettier . --write",
+		"prepare": "husky"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.16.0",
+		"autoprefixer": "^10.4.20",
+		"eslint": "^9.16.0",
+		"globals": "^15.13.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.2.10",
+		"localtunnel": "^2.0.2",
+		"prettier": "^3.4.1",
+		"stylelint": "^16.11.0",
+		"stylelint-config-standard-scss": "^14.0.0",
+		"vite": "^5.0.0"
+	},
+	"dependencies": {
+		"three": "^0.138.3"
+	},
+	"lint-staged": {
+		"*.{js,css,md,json}": "prettier . --write",
+		"*.js": "eslint .",
+		"*.css": "stylelint **/*.css"
+	},
+	"prettier": {
+		"singleQuote": true,
+		"tabWidth": 4,
+		"useTabs": true,
+		"trailingComma": "none",
+		"printWidth": 200,
+		"endOfLine": "crlf"
+	},
+	"stylelint": {
+		"extends": "stylelint-config-standard-scss",
+		"ignoreFiles": [
+			"node_modules/**/*.css",
+			"build/**/*.css"
+		]
+	}
 }
