@@ -8,6 +8,21 @@ import { AmbientLight, PerspectiveCamera, Scene, TextureLoader, PlaneGeometry, M
  * @param {WebGLRenderer} renderer - The WebGL renderer instance
  */
 export function createScene(renderer) {
+	const hiddenVideoFeed = document.getElementById('hidden-video');
+
+	navigator.mediaDevices
+		.getUserMedia({
+			video: {
+				facingMode: { ideal: 'environment' }
+			}
+		})
+		.then((stream) => {
+			hiddenVideoFeed.srcObject = stream;
+		})
+		.catch((error) => {
+			console.error('Error accessing the camera:', error);
+		});
+
 	const scene = new Scene();
 
 	// Create a group to hold the camera and content
@@ -70,35 +85,31 @@ export function createScene(renderer) {
 	 */
 	async function onSelect() {
 		if (planeMarker.visible) {
-			// Capture current camera view as a screenshot
-			const canvas = renderer.domElement; // The WebGLRenderer's canvas
+			// Create a canvas to capture a frame from the video
+			const canvas = document.createElement('canvas');
+			const context = canvas.getContext('2d');
 
-			// Create a temporary canvas to hold the screenshot
-			const tempCanvas = document.createElement('canvas');
-			const context = tempCanvas.getContext('2d');
-
-			// Set the canvas size to match the WebGL canvas
-			tempCanvas.width = canvas.width;
-			tempCanvas.height = canvas.height;
+			// Set canvas dimensions to match the video feed
+			canvas.width = hiddenVideoFeed.videoWidth;
+			canvas.height = hiddenVideoFeed.videoHeight;
 
 			// Draw the current frame from the WebGL canvas onto the temporary canvas
-			context.drawImage(canvas, 0, 0, tempCanvas.width, tempCanvas.height);
+			context.drawImage(hiddenVideoFeed, 0, 0, canvas.width, canvas.height);
 
 			// Convert the canvas content to a Blob
-			tempCanvas.toBlob(
+			canvas.toBlob(
 				async (blob) => {
 					if (!blob) {
 						console.log('error while converting the canvas to a Blob');
 						return;
 					}
-
 					const formData = new FormData();
 					formData.append('image', blob, 'screenshot.png');
 
 					// Send the image Blob to the server
 					try {
 						// update cloudflare tunnel link!
-						const response = await fetch('https://worthy-jokes-partly-myth.trycloudflare.com/upload-image', {
+						const response = await fetch('https://athletics-soma-listen-hereby.trycloudflare.com/upload-image', {
 							method: 'POST',
 							body: formData
 						});
@@ -106,12 +117,11 @@ export function createScene(renderer) {
 						const data = await response.json();
 
 						if (data.text) {
-							const imageLink = await getImageLink(data.text);
+							//const imageLink = await getImageLink(data.text);
+							const imageLink = await getImageLink('Schnitzel');
 							const imagePlane = await createImagePlane(imageLink);
-
 							imagePlane.position.setFromMatrixPosition(planeMarker.matrix);
 							imagePlane.quaternion.setFromRotationMatrix(planeMarker.matrix);
-
 							scene.add(imagePlane);
 						} else {
 							alert('Error: No text extracted.');
