@@ -4,9 +4,11 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
+		"server": "node src/js/server.js",
 		"build": "vite build",
 		"preview": "vite preview",
 		"tunnel": "lt --port 8080",
+		"tunnelbackend": "lt --port 3000",
 		"lint": "eslint . && stylelint **/*.css",
 		"format": "prettier . --write",
 		"prepare": "husky"

@@ -128,7 +128,6 @@ export function createScene(renderer) {
 						}
 					} catch (error) {
 						console.error('Error:', error);
-						outputElement.textContent = 'Error processing the screenshot.';
 					}
 				},
 				'image/png' // Format for the screenshot

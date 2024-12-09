@@ -9,6 +9,8 @@ An augmented reality web application that lets you place food images in your rea
 - Dynamic food image placement on detected surfaces
 - Automatic image aspect ratio adjustment
 - Google Custom Search integration for food images
+- Image text extraction using Ollama AI
+- Express.js backend for image processing
 - Responsive design with mobile-first approach
 
 ## Prerequisites
@@ -17,6 +19,7 @@ An augmented reality web application that lets you place food images in your rea
 - npm or yarn
 - A WebXR-compatible device and browser
 - Google Custom Search API key (for food images)
+- Ollama AI installed locally with llava-phi3 model
 
 ## Installation
 
@@ -28,7 +31,17 @@ cd foodar
 npm i
 ```
 
-2. Add Api key under VITE_GOOGLE_SEARCH_API_KEY
+2. Add Api key VITE_GOOGLE_SEARCH_API_KEY inside .env
+
+## Ollama Setup
+
+1. Install Ollama
+
+2. Download and set up the llava-phi3 model:
+
+```bash
+ollama pull llava-phi3
+```
 
 ## Development
 
@@ -38,11 +51,19 @@ Start the development server:
 npm run dev
 ```
 
-To make your local development server accessible via a public URL:
+To start the Express.js server for image processing:
 
 ```bash
-npm run tunnel
+npm run server
 ```
+
+To develop on mobile you need to tunnel the front and backend to a public url.
+
+1. Tunnel the backend with ether `npm run tunnelbackend`, which is not very reliant, or use the cloudflare-tunnel vscode extension and create a tunnel for port 3000.
+
+2. Add the public url of the backend to `scene.js:112` with the path `/upload-image`.
+
+3. Tunnel the frontend with ether `npm run tunnel` or whith the help of the cloudflare-tunnel extension.
 
 ## Project Structure
 
@@ -54,6 +75,7 @@ foodar/
 │ │ ├── xrApp.js # WebXR initialization
 │ │ ├── planeMarker.js # AR plane marker visualization
 │ │ ├── utils/ # Utility functions
+│ │ ├── server.js # Express.js server for image processing
 │ │ └── index.js # Entry point
 │ ├── css/
 │ │ ├── index.css # CSS entry point
@@ -68,9 +90,11 @@ foodar/
 ## Scripts
 
 - `npm run dev` - Start development server
+- `npm run server` - Start Express.js server for image processing
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
-- `npm run tunnel` - Create public URL with localtunnel
+- `npm run tunnel` - Create public URL with localtunnel for frontend (port 8080)
+- `npm run tunnelbackend` - Create public URL with localtunnel for backend (port 3000)
 - `npm run lint` - Run ESLint and Stylelint
 - `npm run format` - Format code with Prettier
 
