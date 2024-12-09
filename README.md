@@ -11,7 +11,6 @@ An augmented reality web application that lets you place food images in your rea
 - Google Custom Search integration for food images
 - Image text extraction using Ollama AI
 - Express.js backend for image processing
-- Responsive design with mobile-first approach
 
 ## Prerequisites
 
